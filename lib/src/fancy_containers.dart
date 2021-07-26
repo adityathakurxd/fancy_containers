@@ -1,3 +1,4 @@
+import 'package:fancy_containers/src/utils/fancy_containers_typedef.dart';
 import 'package:flutter/material.dart';
 
 class FancyContainer extends StatefulWidget {
@@ -23,8 +24,7 @@ class FancyContainer extends StatefulWidget {
   final Color? textcolor;
   final String subtitle;
   final Color? subtitlecolor;
-  // ignore: prefer_typing_uninitialized_variables
-  final Function? onTap;
+  final FancyContainersCallback? onTap;
   final EdgeInsetsGeometry? padding;
 
   @override
@@ -35,7 +35,7 @@ class _FancyContainerState extends State<FancyContainer> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){widget.onTap;},
+      onTap: widget.onTap!() ?? (){},
       child: Container(
         width: widget.width??MediaQuery.of(context).size.width * 0.90,
         height: widget.height,
