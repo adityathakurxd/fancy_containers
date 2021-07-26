@@ -10,3 +10,7 @@ Updated ReadMe.
 
 Added option to change textcolor and subtitle color.
 Added onTap to specify a function.
+
+## 0.0.4
+
+Fixed onTap to specify a callback.
