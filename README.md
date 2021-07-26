@@ -59,6 +59,10 @@ class FancyScreen extends StatelessWidget {
 
 ## Next Goals
 
- - [ ] Add onTap for functions.
- - [ ] Change font and color style for text.
+ - [x] Add onTap for functions.
+ Now, you can specify the onTap and specify a function.
+ 
+ - [x] Change font and color style for text.
+ Change color by specifying `textcolor` and `subtitlecolor` properties.
+ 
  - [ ] Add more containers to the package.
