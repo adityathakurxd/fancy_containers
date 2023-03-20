@@ -14,3 +14,10 @@ Added onTap to specify a function.
 ## 0.0.4
 
 Fixed onTap to specify a callback.
+
+## 0.0.5
+
+Fixed an issue with onTap causing null value.
+`title` is now a required property.
+The `title` is now centred if a `subtitle` is not provided.
+An example app is added to check implementation.
