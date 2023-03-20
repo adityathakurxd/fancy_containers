@@ -2,15 +2,15 @@ import 'package:fancy_containers/src/utils/fancy_containers_typedef.dart';
 import 'package:flutter/material.dart';
 
 class FancyContainer extends StatefulWidget {
-  const FancyContainer({
+  FancyContainer({
     Key? key,
     this.height = 120.0,
     this.width,
     this.color1,
     this.color2,
-    this.title = "Title",
+    required this.title,
     this.textColor,
-    this.subtitle = "Subtitle",
+    this.subtitle,
     this.subtitleColor,
     this.onTap,
     this.padding,
@@ -18,18 +18,18 @@ class FancyContainer extends StatefulWidget {
     this.subtitleStyle,
   }) : super(key: key);
 
-  final double? width;
-  final double height;
-  final Color? color1;
-  final Color? color2;
-  final String title;
-  final Color? textColor;
-  final String subtitle;
-  final Color? subtitleColor;
-  final FancyContainersCallback? onTap;
-  final EdgeInsetsGeometry? padding;
-  final TextStyle? titleStyle;
-  final TextStyle? subtitleStyle;
+  double? width;
+  double height = 120;
+  Color? color1;
+  Color? color2;
+  String title;
+  Color? textColor;
+  String? subtitle;
+  Color? subtitleColor;
+  FancyContainersCallback? onTap;
+  EdgeInsetsGeometry? padding;
+  TextStyle? titleStyle;
+  TextStyle? subtitleStyle;
 
   @override
   _FancyContainerState createState() => _FancyContainerState();
@@ -39,12 +39,12 @@ class _FancyContainerState extends State<FancyContainer> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap!() ?? () {},
+      onTap: widget.onTap ?? () {},
       child: Container(
         width: widget.width ?? MediaQuery.of(context).size.width * 0.90,
         height: widget.height,
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(const Radius.circular(20.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(20.0)),
           gradient: LinearGradient(colors: [
             widget.color1 ?? const Color(0xFFCB1841),
             widget.color2 ?? const Color(0xFF2604DE)
@@ -64,7 +64,7 @@ class _FancyContainerState extends State<FancyContainer> {
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Text(
-                '${widget.title}',
+                widget.title,
                 style: widget.titleStyle ??
                     TextStyle(
                       color: widget.textColor,
@@ -73,18 +73,19 @@ class _FancyContainerState extends State<FancyContainer> {
                     ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                widget.subtitle,
-                style: widget.subtitleStyle ??
-                    TextStyle(
-                      color: widget.subtitleColor,
-                      fontSize: 15.0,
-                      // fontFamily: 'Montserrat',
+            widget.subtitle != null
+                ? Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Text(
+                      widget.subtitle ?? "",
+                      style: widget.subtitleStyle ??
+                          TextStyle(
+                            color: widget.subtitleColor,
+                            fontSize: 15.0,
+                          ),
                     ),
-              ),
-            ),
+                  )
+                : Container(),
           ],
         ),
       ),
