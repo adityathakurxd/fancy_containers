@@ -2,7 +2,7 @@ import 'package:fancy_containers/src/utils/fancy_containers_typedef.dart';
 import 'package:flutter/material.dart';
 
 class FancyContainer extends StatefulWidget {
-  FancyContainer({
+  const FancyContainer({
     Key? key,
     this.height = 120.0,
     this.width,
@@ -18,18 +18,18 @@ class FancyContainer extends StatefulWidget {
     this.subtitleStyle,
   }) : super(key: key);
 
-  double? width;
-  double height = 120;
-  Color? color1;
-  Color? color2;
-  String title;
-  Color? textColor;
-  String? subtitle;
-  Color? subtitleColor;
-  FancyContainersCallback? onTap;
-  EdgeInsetsGeometry? padding;
-  TextStyle? titleStyle;
-  TextStyle? subtitleStyle;
+  final double? width;
+  final double height;
+  final Color? color1;
+  final Color? color2;
+  final String title;
+  final Color? textColor;
+  final String? subtitle;
+  final Color? subtitleColor;
+  final FancyContainersCallback? onTap;
+  final EdgeInsetsGeometry? padding;
+  final TextStyle? titleStyle;
+  final TextStyle? subtitleStyle;
 
   @override
   _FancyContainerState createState() => _FancyContainerState();
